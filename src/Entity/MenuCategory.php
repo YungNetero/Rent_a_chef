@@ -21,7 +21,8 @@ class MenuCategory
     #[ORM\Column(type: 'string', length: 255)]
     private $Img;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Menu::class)]
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Menu::class, orphanRemoval: true
+    )]
     private $menus;
 
     public function __construct()

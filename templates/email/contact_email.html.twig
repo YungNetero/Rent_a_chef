@@ -1,0 +1,13 @@
+<h1>Nouvelle demande de contact</h1>
+
+<h2>Coordonnées</h2>
+
+<ul>
+    <li>Nom : {{ firstName ~ ' ' ~ lastName|upper}}</li>
+    <li>Email : {{ emailAddress }}</li>
+</ul>
+
+<h2>Message</h2>
+
+
+<p>{{ message|nl2br }}</p>

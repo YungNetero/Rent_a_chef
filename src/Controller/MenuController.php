@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/menu')]
+ // #[Route('/menu')]
 class MenuController extends AbstractController
 {
-    #[Route('/', name: 'app_menu_index', methods: ['GET'])]
+    #[Route('/chef/menu', name: 'app_menu_index', methods: ['GET'])]
     public function index(MenuRepository $menuRepository): Response
     {
         return $this->render('menu/index.html.twig', [
@@ -21,7 +21,7 @@ class MenuController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_menu_new', methods: ['GET', 'POST'])]
+    #[Route('/chef/menu/new', name: 'app_menu_new', methods: ['GET', 'POST'])]
     public function new(Request $request, MenuRepository $menuRepository): Response
     {
         $menu = new Menu();
@@ -40,7 +40,7 @@ class MenuController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_menu_show', methods: ['GET'])]
+    #[Route('/chef/menu/show/{id}', name: 'app_menu_show', methods: ['GET'])]
     public function show(Menu $menu): Response
     {
         return $this->render('menu/show.html.twig', [
@@ -48,7 +48,7 @@ class MenuController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_menu_edit', methods: ['GET', 'POST'])]
+    #[Route('/chef/menu/{id}/edit', name: 'app_menu_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Menu $menu, MenuRepository $menuRepository): Response
     {
         $form = $this->createForm(MenuType::class, $menu);
@@ -66,7 +66,7 @@ class MenuController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_menu_delete', methods: ['POST'])]
+    #[Route('/chef/menu/{id}', name: 'app_menu_delete', methods: ['POST'])]
     public function delete(Request $request, Menu $menu, MenuRepository $menuRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$menu->getId(), $request->request->get('_token'))) {

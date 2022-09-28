@@ -4,14 +4,17 @@
 
 {% block body %}
 
-    <h1>Menu index</h1>
+    <h1 class="container" >Menu index</h1>
 
-    <table class="table">
+    <table class="table container">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Menu_name</th>
                 <th>Price_menu</th>
+                <th>Starter</th>
+                <th>Main</th>
+                <th>Dessert</th>
                 <th>Description</th>
                 <th>actions</th>
             </tr>
@@ -23,8 +26,11 @@
                 <td>{{ menu.id }}</td>
                 <td>{{ menu.menuName }}</td>
                 <td>{{ menu.priceMenu }}</td>
+                <td>{{ menu.starter }} </td>
+                <td>{{ menu.main }}</td>
+                <td>{{ menu.dessert}}</td>
                 <td>{{ menu.description }}</td>
-                <td>
+                <
             
                     <a href="{{ path('app_menu_show', {'id': menu.id}) }}">show</a>
                     <a href="{{ path('app_menu_edit', {'id': menu.id}) }}">edit</a>

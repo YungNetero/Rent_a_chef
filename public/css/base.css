@@ -1,0 +1,64 @@
+/* **************************************** RESET **************************************** */
+
+    * {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-decoration: none;
+    }
+
+/* **************************************** GLOBAL **************************************** */
+
+    * {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-family: 'Amatic SC', sans-serif;
+    }
+
+    h1, h2 {
+        text-align: center;
+    }
+
+/* **************************************** HEADER **************************************** */
+
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    header img {
+        height: 35px;
+    }
+
+/* **************************************** MAIN **************************************** */
+
+    main {
+        padding-top: 61px;
+        min-height: calc(100vh - 387px);
+    }
+
+    table img {
+        max-height: 50px;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+    }
+
+/* **************************************** FOOTER **************************************** */
+
+    footer ul {
+        padding: 0;
+    }
+
+    footer a {
+        text-decoration: none;
+    }
+
+    footer #copyright p {
+        font-size: 0.75rem;
+    }

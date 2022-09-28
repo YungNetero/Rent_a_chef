@@ -16,9 +16,10 @@ class MenuCategoryType extends AbstractType
     {
         $builder
             ->add('category_name', TextType::class)
-            ->add('Img',FileType ::class, array(
+            ->add('Img', FileType::class, array(
+                'mapped' => false,
                 'label' => 'ajouter image'
-                ))
+            ))
         ;
     }
 

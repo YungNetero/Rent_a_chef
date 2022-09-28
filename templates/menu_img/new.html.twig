@@ -3,9 +3,12 @@
 {% block title %}New MenuImg{% endblock %}
 
 {% block body %}
-    <h1>Create new MenuImg</h1>
+<div class="container">
+ <h1>Create new MenuImg</h1>
 
     {{ include('menu_img/_form.html.twig') }}
 
-    <a href="{{ path('app_menu_img_index') }}">back to list</a>
+    <a href="{{ path('app_menu_img_index') }}">back to list</a>   
+</div>  
+
 {% endblock %}

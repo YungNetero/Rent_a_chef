@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block description %}Page de contact
+du site{% endblock %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body%}
+
+<h1>contact</h1>
+
+{{ form_start(contactForm) }}
+<div class="row">
+    <div class="col-6">
+        {{ form_row(contactForm.firstname, {
+            'label': 'Prénom'
+        }) }}
+    </div>
+    <div class="col-md-6 col-lg-4">
+        {{ form_row(contactForm.lastname, {
+            'label': 'Nom'
+        }) }}
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        {{ form_row(contactForm.email) }}
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="col-12">
+        {{ form_row(contactForm.message) }}
+    </div>
+</div>
+<div class="row text-end">
+    <div class="col-12">
+        <button type="submit" class="btn btn-success">Envoyer</button>
+    </div>
+</div>
+
+{{ form_end(contactForm) }}
+
+
+{% endblock %}

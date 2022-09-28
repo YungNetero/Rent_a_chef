@@ -10,7 +10,7 @@
 
 
 .logo{
-    max-width:  10%;
+    max-width:  100%;
 }
 .logo img {
     width: 100%;
@@ -19,7 +19,7 @@
 
 }
 .img{
-    max-width:  200%;
+    max-width:  100%;
 }
 .img img {
     width: 158%;

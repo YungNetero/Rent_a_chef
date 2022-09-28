@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/rate')]
+//#[Route('/rate')]
 class RateController extends AbstractController
 {
-    #[Route('/', name: 'app_rate_index', methods: ['GET'])]
+    #[Route('/rate', name: 'app_rate_index', methods: ['GET'])]
     public function index(RateRepository $rateRepository): Response
     {
         return $this->render('rate/index.html.twig', [
@@ -21,7 +21,7 @@ class RateController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_rate_new', methods: ['GET', 'POST'])]
+    #[Route('/rate/new', name: 'app_rate_new', methods: ['GET', 'POST'])]
     public function new(Request $request, RateRepository $rateRepository): Response
     {
         $rate = new Rate();

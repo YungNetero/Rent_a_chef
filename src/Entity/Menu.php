@@ -28,12 +28,27 @@ class Menu
     #[ORM\JoinColumn(nullable: false)]
     private $category;
 
-    #[ORM\OneToMany(mappedBy: 'menu', targetEntity: MenuImg::class)]
-    private $menu;
+    #[ORM\Column(type: 'string', length: 255)]
+    private $starter;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $main;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $dessert;
+
+    #[ORM\Column(type: 'string', length: 50)]
+    private $img1;
+
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    private $img2;
+
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    private $img3;
 
     public function __construct()
     {
-        $this->menu = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -89,33 +104,76 @@ class Menu
         return $this;
     }
 
-    /**
-     * @return Collection<int, MenuImg>
-     */
-    public function getMenu(): Collection
+    public function getStarter(): ?string
     {
-        return $this->menu;
+        return $this->starter;
     }
 
-    public function addMenu(MenuImg $menu): self
+    public function setStarter(string $starter): self
     {
-        if (!$this->menu->contains($menu)) {
-            $this->menu[] = $menu;
-            $menu->setMenu($this);
-        }
+        $this->starter = $starter;
 
         return $this;
     }
 
-    public function removeMenu(MenuImg $menu): self
+    public function getMain(): ?string
     {
-        if ($this->menu->removeElement($menu)) {
-            // set the owning side to null (unless already changed)
-            if ($menu->getMenu() === $this) {
-                $menu->setMenu(null);
-            }
-        }
+        return $this->main;
+    }
+
+    public function setMain(string $main): self
+    {
+        $this->main = $main;
 
         return $this;
     }
+
+    public function getDessert(): ?string
+    {
+        return $this->dessert;
+    }
+
+    public function setDessert(string $dessert): self
+    {
+        $this->dessert = $dessert;
+
+        return $this;
+    }
+
+    public function getImg1(): ?string
+    {
+        return $this->img1;
+    }
+
+    public function setImg1(string $img1): self
+    {
+        $this->img1 = $img1;
+
+        return $this;
+    }
+
+    public function getImg2(): ?string
+    {
+        return $this->img2;
+    }
+
+    public function setImg2(?string $img2): self
+    {
+        $this->img2 = $img2;
+
+        return $this;
+    }
+
+    public function getImg3(): ?string
+    {
+        return $this->img3;
+    }
+
+    public function setImg3(?string $img3): self
+    {
+        $this->img3 = $img3;
+
+        return $this;
+    }
+
 }

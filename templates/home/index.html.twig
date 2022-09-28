@@ -1,64 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Rent a chef {% endblock %}
+{% block title %}accueil{% endblock %}
 
 {% block body %}
-<!DOCTYPE html>
-<html lang="fr">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rent a chef</title>
-
-  <!-- CSS only -->
-  {% block stylesheets %}
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="{{asset('css/style.css')}}">
-  {% endblock %}
-
-
-
-  <!-- SECTION > CONTAINER > CONTENU -->
-
-  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="container-fluid">
-      <a class="logo" href="#"> <img src="{{ asset('img/logo.png') }}" alt="RENT-A-CHEF" </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-          aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-
-          <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
-            <a class="btn btn-outline-success" aria-current="page" href="#">About-us</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-outline-success" aria-current="page" href="#">Chefs</a>
-
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-outline-success" aria-current="page" href="#">Contact</a>
-
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-              </a>
-            </li>
-          </ul>
-          <button type="button" class="btn btn-outline-success">connexion</button>
-          <button type="button" class="btn btn-outline-success">inscription de chef</button>
-          </form>
-        </div>
-    </div>
-  </nav>
-</head>
-
-<body class=".container-fluid">
+<body class="container-fluid">
   <div class="d-flex mb-3">
     <div class="me-auto p-2">
       <div class="img">
@@ -69,21 +15,52 @@
           <h1 class="card-title"> chef privé</h1>
         </div>
         <div class="card-body">
-          <p class="card-text">vivez une experience culinaire personalisée avec un chef au sin de votre espace personnel</p>
+          <p class="card-text">vivez une experience culinaire personalisée avec un chef au sein de votre espace
+            personnel
+          </p>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search for a chef" aria-label="Search">
-           
+
         </div>
+
       </div>
-      <h2>transformer votre maison en restaurant avec un chef privé</h2>
+      <div class="d-flex mb-3">
+        <li>
+          <h2>transformer votre maison en restaurant avec un chef privé</h2> <br>
+          <p> choisiser votre menu composé par le chef, et il s'occupera du reste</p>
+        </li>
+      </div>
+      <li>
+        <h2>Nos chefs privés auront le plaisir de cuisiner chez vous</h2>
+        <p>Quelques heures avant votre dîner, votre chef arrivera et commencera à préparer le menu sur lequel vous vous
+          êtes mis d'accord.
+
+          Vous aurez l'opportunité de regarder et apprendre de nouvelles recettes de votre chef pendant qu'il cuisine
+          chez vous!</p>
+      <li>
+        <h2>nous vous servirons chaque plat</h2>
+      </li>
+      <p>Votre chef privé et son équipe se chargeront du service à table, ils vous guideront à travers chaque détail
+        dans chaque plat afin que vous puissiez vivre une expérience culinaire unique dans le confort de votre propre
+        maison.
+
+        Grâce à notre service discret et professionnel, nous garantissons que vous et vos invités pourront profiter de
+        la soirée sans vous soucier!</p>
+      </li>
+      <li>
+        <h2>Nous vous laisserons la cuisine imppecable!</h2>
+        <p>Le nettoyage est une partie essentielle d'un service parfait! Avant de partir, le chef et son équipe
+          s'assureront que chaque équipement et vaisselle utilisés dans le service seront laisser tels qu'ils les ont
+          trouvés.
+
+          Détendez-vous et profitez de votre soirée en toute tranquillité, votre chef privé va tout prendre en charge!
+        </p>
+      </li>
     </div>
   </div>
 
-  <!-- JavaScript Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>
+
 {% endblock %}
