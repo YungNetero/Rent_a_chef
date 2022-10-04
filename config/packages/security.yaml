@@ -18,7 +18,11 @@ security:
         main:
             lazy: true
             provider: app_user_provider
-
+            custom_authenticator: App\Security\LoginformAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
@@ -30,7 +34,7 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/chef, roles: ROLE_CHEF }
-        # - { path: ^/user, roles: ROLE_USER }
+        - { path: ^/user, roles: ROLE_USER }
     role_hierarchy:
         # - 'ROLE_CHEF': 'ROLE_USER'
         # - 'ROLE_ADMIN': 'ROLE_CHEF'

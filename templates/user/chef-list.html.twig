@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}liste des Chefs{% endblock %}
+
+{% block body %}
+<h1>liste des Chefs</h1>
+<section class="id">
+    <div class="container px-2">
+     <div class="row p-3">
+            {% for chef in chefs %}
+          
+                <div class="card text-center col col-md-4 ">
+                    <img class="img-fluid" src="{{ asset('img/' ~ chef.) }}" alt="chef-id">
+                    <div class="card-body">
+                        <h5 class="card-title"> Chef {{ chef.Firstname }} {{ chef.Lastname }} </h5>
+                        <p class="card text"></p>
+                        <a href="{{ path('app_user_profile', {'id': chef.id}) }} "> voir Profil</a>
+                    </div>
+                </div>
+                 {% endfor %}
+        </div>
+
+       
+    </div>
+</section>
+
+{% endblock %}

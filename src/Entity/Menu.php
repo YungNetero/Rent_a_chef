@@ -17,7 +17,7 @@ class Menu
 
     #[ORM\Column(type: 'string', length: 255)]
     private $menu_name;
-
+    // modifier type: integer retirer length puis make:migration puis d:m:m
     #[ORM\Column(type: 'string', length: 100)]
     private $price_menu;
 
@@ -45,6 +45,10 @@ class Menu
 
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
     private $img3;
+
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'menus')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $user;
 
     public function __construct()
     {
@@ -172,6 +176,18 @@ class Menu
     public function setImg3(?string $img3): self
     {
         $this->img3 = $img3;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

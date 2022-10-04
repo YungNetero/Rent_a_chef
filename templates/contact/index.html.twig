@@ -7,41 +7,35 @@ du site{% endblock %}
 
 {% block body%}
 
-<h1>contact</h1>
+<section class="container">
+    <div class="row">
+        <div class="col">
+            <h1>contact</h1>
+            {{ form_start(contactForm) }}
+            <fieldset class="mb-3">
+                <legend>mon identité</legend>
+                {{ form_row(contactForm.firstname, {
+                'label': 'Prénom'
+                }) }}
 
-{{ form_start(contactForm) }}
-<div class="row">
-    <div class="col-6">
-        {{ form_row(contactForm.firstname, {
-            'label': 'Prénom'
-        }) }}
-    </div>
-    <div class="col-md-6 col-lg-4">
-        {{ form_row(contactForm.lastname, {
-            'label': 'Nom'
-        }) }}
-    </div>
-</div>
+                {{ form_row(contactForm.lastname, {
+                'label': 'Nom'
+                }) }}
+                {{ form_row(contactForm.email) }}
+            </fieldset>
+            <fieldset>
+                <legend>mon message</legend>
+                <div class="col">
+                    {{ form_row(contactForm.message) }}
+                </div>
+                <div class="row text-end">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-outline-success btn-lg my-3">Envoyer</button>
+                    </div>
+                </div>
+            </fieldset>
+            {{ form_end(contactForm) }}
 
-<div class="row">
-    <div class="col-6">
-        {{ form_row(contactForm.email) }}
-    </div>
-    
-</div>
-
-<div class="row">
-    <div class="col-12">
-        {{ form_row(contactForm.message) }}
-    </div>
-</div>
-<div class="row text-end">
-    <div class="col-12">
-        <button type="submit" class="btn btn-success">Envoyer</button>
-    </div>
-</div>
-
-{{ form_end(contactForm) }}
-
+</section>
 
 {% endblock %}

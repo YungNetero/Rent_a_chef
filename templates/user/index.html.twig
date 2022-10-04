@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}liste des Chefs{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
+    <h1>liste des Chefs</h1>
 
     <table class="table">
         <thead>
@@ -12,7 +12,7 @@
                 <th>Email</th>
                 <th>Roles</th>
                 <th>Password</th>
-                <th>Firtname</th>
+                <th>Firstname</th>
                 <th>Lastname</th>
                 <th>actions</th>
             </tr>
@@ -24,7 +24,7 @@
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ user.password }}</td>
-                <td>{{ user.Firtname }}</td>
+                <td>{{ user.Firstname }}</td>
                 <td>{{ user.Lastname }}</td>
                 <td>
                     <a href="{{ path('app_user_show', {'id': user.id}) }}">show</a>

@@ -32,7 +32,7 @@ class MenuCategoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
              
             $img = $form->get('Img')->getData(); //récupérer l'image depuis le formulaire
-            $imgName = time() . '.' . $img->guessExtension(); // renomme (SluggerInterface ou timestamp)
+            $imgName = time() . '.' . $img->guessExtension();  // renomme (SluggerInterface ou timestamp)
             $menuCategory->setImg($imgName); // utiliser ce nouveau nom pour l'envoyer en base de données ($menuCategory->setImg('LE_NOUVEAU_NOM'))
             $img->move($this->getParameter('menuCategoryImgDir'), $imgName); // upload de l'image dans le dossier public/img/menuCategory/ (avec le nouveau nom)
 

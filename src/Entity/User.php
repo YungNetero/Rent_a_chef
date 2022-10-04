@@ -3,18 +3,22 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
-
+gi
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
 
@@ -25,10 +29,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     #[ORM\Column(type: 'string', length: 50)]
-    private $Firtname;
+    private $firstname;
 
     #[ORM\Column(type: 'string', length: 50)]
-    private $Lastname;
+    private $lastname;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Menu::class)]
+    private $menus;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $ImgProfil;
+
+    public function __construct()
+    {
+        $this->menus = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -119,26 +134,68 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getFirtname(): ?string
+    public function getfirstname(): ?string
     {
-        return $this->Firtname;
+        return $this->firstname;
     }
 
-    public function setFirtname(string $Firtname): self
+    public function setfirstname(string $firstname): self
     {
-        $this->Firtname = $Firtname;
+        $this->firstname = $firstname;
 
         return $this;
     }
 
-    public function getLastname(): ?string
+    public function getlastname(): ?string
     {
-        return $this->Lastname;
+        return $this->lastname;
     }
 
-    public function setLastname(string $Lastname): self
+    public function setlastname(string $lastname): self
     {
-        $this->Lastname = $Lastname;
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Menu>
+     */
+    public function getMenus(): Collection
+    {
+        return $this->menus;
+    }
+
+    public function addMenu(Menu $menu): self
+    {
+        if (!$this->menus->contains($menu)) {
+            $this->menus[] = $menu;
+            $menu->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMenu(Menu $menu): self
+    {
+        if ($this->menus->removeElement($menu)) {
+            // set the owning side to null (unless already changed)
+            if ($menu->getUser() === $this) {
+                $menu->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getImgProfil(): ?string
+    {
+        return $this->ImgProfil;
+    }
+
+    public function setImgProfil(?string $ImgProfil): self
+    {
+        $this->ImgProfil = $ImgProfil;
 
         return $this;
     }

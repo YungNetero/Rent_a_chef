@@ -40,7 +40,7 @@ class RateController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_rate_show', methods: ['GET'])]
+    #[Route('/rate/{id}', name: 'app_rate_show', methods: ['GET'])]
     public function show(Rate $rate): Response
     {
         return $this->render('rate/show.html.twig', [
@@ -48,7 +48,7 @@ class RateController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_rate_edit', methods: ['GET', 'POST'])]
+    #[Route('/rate/{id}/edit', name: 'app_rate_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Rate $rate, RateRepository $rateRepository): Response
     {
         $form = $this->createForm(RateType::class, $rate);
@@ -66,7 +66,7 @@ class RateController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_rate_delete', methods: ['POST'])]
+    #[Route('/rate/delete/{id}', name: 'app_rate_delete', methods: ['POST'])]
     public function delete(Request $request, Rate $rate, RateRepository $rateRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$rate->getId(), $request->request->get('_token'))) {
