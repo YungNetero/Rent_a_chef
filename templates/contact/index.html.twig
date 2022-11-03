@@ -1,41 +1,64 @@
 {% extends 'base.html.twig' %}
 
-{% block description %}Page de contact
-du site{% endblock %}
+{% block description %}Page de contact du site{% endblock %}
 
 {% block title %}Contact{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{asset('css/contact.css')}}">
+{% endblock %}
 
 {% block body%}
+{{ form_start(contactForm) }}
+<div class=" container emp_contact">
 
-<section class="container">
     <div class="row">
-        <div class="col">
-            <h1>contact</h1>
-            {{ form_start(contactForm) }}
-            <fieldset class="mb-3">
-                <legend>mon identité</legend>
-                {{ form_row(contactForm.firstname, {
-                'label': 'Prénom'
-                }) }}
 
-                {{ form_row(contactForm.lastname, {
-                'label': 'Nom'
-                }) }}
-                {{ form_row(contactForm.email) }}
-            </fieldset>
-            <fieldset>
-                <legend>mon message</legend>
-                <div class="col">
-                    {{ form_row(contactForm.message) }}
-                </div>
-                <div class="row text-end">
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-outline-success btn-lg my-3">Envoyer</button>
-                    </div>
-                </div>
-            </fieldset>
-            {{ form_end(contactForm) }}
 
-</section>
+        <div>{{ form_row(contactForm.firstname, {
+            'label': 'Prénom'
+            }) }}
+        </div>
+        
+        <div>
+            {{ form_row(contactForm.lastname, {
+            'label': 'Nom'
+            }) }}
+        </div>
 
-{% endblock %}
+        <div>
+            {{form_row(contactForm.email, {
+            'label':'Email',
+            })}}
+
+        </div>
+
+        <div>
+            {{form_row(contactForm.message, {
+                'label':'Message'
+                })}}
+        </div>
+
+
+
+        <div>
+            {{ form_row(contactForm.subject, {
+            'label': 'Sujet'
+            }) }}
+        </div>
+
+        <div class="row text-end">
+            <div class="col-12">
+                <button type="submit" class="btn btn-outline-success btn-lg my-3">Envoyer</button>
+            </div>
+        </div>
+
+        {{ form_end(contactForm) }}
+
+    </div>
+
+
+
+
+
+
+    {% endblock %}

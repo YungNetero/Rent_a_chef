@@ -35,11 +35,9 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-            $isChef = $request->request->get('isChef');
-            if ($isChef === true) {
-                $user->setRoles(['ROLE_CHEF']);
-            } else {
-                $user->setRoles(['ROLE_USER']);
+            $role = $form['chef']->getData();
+            if($role === "ROLE_CHEF") {
+                $user->setRoles([$role]);
             }
 
             $entityManager->persist($user);

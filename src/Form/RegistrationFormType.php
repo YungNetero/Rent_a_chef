@@ -14,6 +14,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType ;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
@@ -52,7 +53,7 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Veuillez accepter les termes',
                     ]),
                 ],
                   
@@ -97,6 +98,16 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
                 'label' => 'Mot de passe'
+            ])
+            ->add('chef', ChoiceType::class, [
+                'mapped' => false,
+                'label' => 'Êtes-vous un chef ?',
+                'choices' => [
+                    'non' => 'ROLE_USER',
+                    'oui' => 'ROLE_CHEF'
+                ],
+                'expanded' => true,
+                'multiple' => false
             ])
         ;
     }

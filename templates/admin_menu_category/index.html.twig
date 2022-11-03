@@ -1,0 +1,43 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block title %}MenuCategory index{% endblock %}
+
+{% block body %}
+<div class="container">
+
+
+    <h1>Catégories</h1>
+
+    <table class="table table-hover table-sm texxt-center align-middle text-center">
+        
+        <tbody>
+        {% for menu_category in menu_categories %}
+            
+        <div class="container  ">
+            <div class="p-2">
+              <div class="card__header">
+                <img src="{{asset('img/uploads/menuCategory/' ~ menu_category.img ) }}" alt="card__image" class="card__image" width="100">
+              </div>
+              <div class="card__body">
+                <h4>{{ menu_category.categoryName }}</h4>
+                <a href="{{ path('app_menu_category_show', {'id': menu_category.id}) }}"class="btn btn-success">Voir</a>
+                <a href="{{ path('app_menu_category_edit', {'id': menu_category.id}) }}" class="btn btn-success">Modifier</a>
+              </div>
+            </div>
+            </div>
+          </div>
+          
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-end mt-4">
+  <a href="{{ path('app_menu_category_new') }}" class="btn btn-success">Creer une catégorie</a>
+    </div>
+  
+</div>
+{% endblock %}

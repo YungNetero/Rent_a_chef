@@ -1,0 +1,146 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} A propos de nous{% endblock %}
+
+{% block body %}
+<style>
+    
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body{
+    background: -webkit-linear-gradient(left, #076827, #b7ddc3);
+} 
+.emp-about {
+    padding: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 0.5rem;
+    background: #fff; 
+}
+    .example-wrapper {
+        margin: 1em auto;
+        max-width: 800px;
+        width: 95%;
+        font: 18px/1.5 sans-serif;
+    }
+
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
+    }
+
+    .title-header h2 {
+        background: #fff;
+        color: #363636;
+        display: inline-block;
+        font-weight: 600;
+        line-height: 40px;
+        margin: 0;
+        padding: 0 30px;
+        position: relative;
+        text-transform: uppercase;
+        border: 2px solid #198754;
+    }
+</style>
+
+<div class="example-wrapper emp-about">
+    <div class="row mt-5">
+		<div class="col-md-12">
+            <div class="title-header text-center">
+                <h2>A propos de nous</h2>
+            </div>
+        </div>
+	</div>
+
+    <p>
+        Rent a chef est votre source unique pour des expériences de repas et de restauration abordables dans votre
+        maison. </p>
+
+    <p>les chefs sont répartis dans toute la france et maîtrisent une variété de compétences et de spécialités
+        culinaires.</p>
+
+    <p>Une cuisine à domicile pour des événements spéciaux pour les couples et les groupes</p>
+
+    <p>Tout ce que votre esprit culinaire peut imaginer
+        Rent a chef fournit le plus grand et le seul lieu de recherche ouvert pour mettre en relation les personnes à la
+        recherche d'alternatives alimentaires saines et abordables avec des chefs personnels de qualité dans leur
+        région.
+    </p>
+    <p>La convivialité et la commodité rendent rentachef pratique et informatif car il vous guide tout au long du
+        processus de recherche et d'embauche d'un service de chef personnel.</p>
+    
+    <div class="row mt-5">
+		<div class="col-md-12">
+            <div class="title-header text-center">
+                <h2>Comment ça marche ?</h2>
+            </div>
+        </div>
+	</div>
+
+    <div class="col">
+        </h3>
+        <p class="lead text-center">En seulement 3 étapes vous pourrez profiter d'un Chef à Domicile</p>
+
+        <div class="hiw-steps--wrapper" data-controller="scroll-reveal">
+            <div class="row hiw-steps--row justify-content-center align-items-start reveal in" itemprop="step"
+                data-scroll-reveal-target="item">
+
+                <div class="col-12 col-md-auto">
+                    <div
+                        class="hiw-steps-number  d-flex align-items-center justify-content-center mb-3 mx-auto mb-md-0">
+                        <span class="text-white">➖</span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5 hiw-steps--item text-center text-md-left bg-white">
+                    <h4 class="font-weight-bold" itemprop="name">Faites votre demande aupres du chef de votre choix</h4>
+                    <div>
+                        <p>Contactez et indiquez au chef l'adresse et la date, le type de cuisine que vous souhaitez, vos intolérances alimentaires, etc.</p>                 
+                    </div>
+                </div>
+            </div>
+          
+            <div class="row hiw-steps--row justify-content-center align-items-start mt-3 reveal in" itemprop="step"
+                itemscope="" itemtype="https://schema.org/HowToStep" data-scroll-reveal-target="item">
+                <div class="col-12 col-md-auto">
+                    <div
+                        class="hiw-steps-number  d-flex align-items-center justify-content-center mb-3 mx-auto mb-md-0">
+                        <span class="text-white">➖</span>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5 hiw-steps--item text-center text-md-left bg-white">
+                    <h4 class="font-weight-bold" itemprop="name">Parlez avec le Chef que vous aurez choisis</h4>
+                    <div itemprop="itemListElement" itemscope="" itemtype="https://schema.org/HowToDirection">
+                        <p itemprop="text">Vérifiez les menus, le profil de chaque chef et selectionnez le menu de votre
+                            choix</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row hiw-steps--row justify-content-center align-items-start mt-3 reveal in" itemprop="step"
+                itemscope="" itemtype="https://schema.org/HowToStep" data-scroll-reveal-target="item">
+
+            </div>
+            <div class="row hiw-steps--row hiw-steps--row__last justify-content-center align-items-start mt-3 reveal in"
+                itemprop="step" itemscope="" itemtype="https://schema.org/HowToStep" data-scroll-reveal-target="item">
+                <div class="col-12 col-md-auto">
+                    <div class="hiw-steps-number  d-flex align-items-center justify-content-center mb-3 mx-auto mb-md-0">
+                        <span class="text-white">➖</span>
+                    </div>
+                </div>
+                <div
+                    class="col-12 col-md-5 hiw-steps--item hiw-steps--item__last align-self-center text-center text-md-left bg-white">
+                    <h4 class="font-weight-bold" itemprop="name">Bon appétit !</h4>
+                    <div >
+                        <p itemprop="text">Le chef vous contactera par téléphone pour confirmer les derniers détails.Vous n'avez plus qu'à profiter de l'expérience !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

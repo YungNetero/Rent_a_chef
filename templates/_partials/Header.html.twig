@@ -1,24 +1,27 @@
 <nav class="navbar navbar-expand-lg bg-light ">
   <div class="container-fluid">
-    <a href="{{path('app_home')}}"><img src="{{asset('img/logo/logoRAC.png')}}" alt="  Rent-A-Chef"> </a>
+    <a href="{{path('app_home')}}"><img src="{{asset('img/logo/logoRAC.png')}}" alt="Rent-A-Chef"> </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarcontent"
       aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav me-auto my-2 my-lg-0" style="--bs-scroll-height: 100px;">
-        <a class="btn btn-outline-success" aria-current="à propos" href="#">à propos</a>
+        <li>
+          <a class="btn btn-outline-success" aria-current="à propos" href="{{path('app_about')}}">à propos</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-outline-success" aria-current="chefs" href="#">Chefs</a>
+          <a class="btn btn-outline-success" aria-current="chefs" href="{{path('app_list_chef')}}">Chefs</a>
 
         </li>
         <li class="nav-item">
           <a class="btn btn-outline-success" aria-current="contact" href="{{path('contact')}}">Contact</a>
-
+        </li>
       </ul>
-      {% if app.user %}
-      <a class="btn btn-outline-success" href="{{path('app_user_profile')}}">Mon Profil</a>
+  
+       {% if app.user %}
+       <a class="btn btn-outline-success" href="{{path('app_profile_show')}}">Mon Profil</a> 
+       {#mettre le lien de la page profil#}
       <a class="btn btn-outline-success" href="{{path('app_logout')}}">Déconnexion</a>
       {% else %}
       <a class="btn btn-outline-success" href="{{path('app_login')}}">Connexion</a>

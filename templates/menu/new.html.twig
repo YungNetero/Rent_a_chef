@@ -1,10 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Menu{% endblock %}
+{% block title %}Nouveau menu{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('css/menu-form.css') }}">
+{% endblock %}
 
 {% block body %}
 <div class="container">
-    <h1>Create new Menu</h1>
+    <h1>Création d'un nouveau menu</h1>
 
     {{ include('menu/_form.html.twig') }}
 

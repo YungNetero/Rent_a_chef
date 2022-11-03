@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Modifier profil{% endblock %}
+
+{% block body %}
+    <h1>Modifier profil</h1>
+
+    {{ include('profile/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_profile_show') }}">retour au profil</a>
+
+    {{ include('profile/_delete_form.html.twig') }}
+{% endblock %}

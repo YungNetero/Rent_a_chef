@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+{% block description %} Cette page permet a l'utilisteur de regarder ces information personnelles{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('css/profil.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container emp-profile">
+
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="{{ asset('img/chef-pic/' ~ app.user.ImgProfil) }}" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <h1> {{ user.Firstname }} {{ user.Lastname }} </h1>
+
+
+                    <div class="px-4 py-3">
+                        <div class="p-4 rounded shadow-sm bg-light">
+                
+                            <h5 class="font-italic mb-0">Chef privé</h5>
+                            <p class="proile-rating">
+                                ⭐ 4.8 (19) <span> 🍽 46 services</span></p>
+                            <div class="row">
+                                <div class="col-md-6"> 
+    
+                                    <label>Ville</label>
+                                </div>
+                                        <div class="col-md-6">
+                                            <h5 class="font-italic mb-0">Paris</h5>
+                                </div>
+                                <div class="col-md-6"> 
+                                    <label>Email</label>
+                                </div>
+                                        <div class="col-md-6">
+                                            <h5 class="font-italic mb-0">{{ user.email }}</h5>
+                                </div>
+                                <a href=" {{ path('app_menu_new')}}" type="submit" class="profile-edit-btn"
+                            name="btnAddMore" value="Creer menu ">Creer Menu</a>
+                            
+                               </div>
+                                  
+                                
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="{{ path('app_profile_edit')}}" type="submit" class="profile-edit-btn"
+                            name="btnAddMore" value="Edit Profile">Edit profil</a>
+                    </div>
+                </div>
+    </form>
+
+
+
+
+    <a href="{{ path('app_profile_show') }}">retour au profil</a>
+
+    {{ include('profile/_delete_form.html.twig') }}
+    {% endblock %}

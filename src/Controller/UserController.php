@@ -84,7 +84,6 @@ class UserController extends AbstractController
 
         return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
     }
-
     #[Route('/user/profil', name: 'app_user_profile')]
     public function profile(): Response
     {
@@ -92,4 +91,6 @@ class UserController extends AbstractController
             'user' => $this->getUser()
         ]);
     }
+
+   
 }

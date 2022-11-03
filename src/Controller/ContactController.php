@@ -19,6 +19,7 @@ class ContactController extends AbstractController
     {
         $contactForm = $this->createForm(ContactType::class);
         $contactForm->handleRequest($request);
+        
 
         if ($contactForm->isSubmitted() && $contactForm->isValid()) {
         
@@ -33,6 +34,7 @@ class ContactController extends AbstractController
                 ->context([ // passe les informations au template
                     'firstName' => $contact['firstname'],
                     'lastName' => $contact['lastname'],
+                    'subject' => $contact['subject'],
                     'message' => $contact['message'],
                     'emailAddress' => $contact['email'],
                 ]);

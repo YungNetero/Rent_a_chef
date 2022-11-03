@@ -2,44 +2,50 @@
 
 <html lang="fr">
 
-    <head>
+<head>
 
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="author" content="Andrew Matoute">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="site de mise en relation entre des clients et des chefs privé">
+    <meta name="description" content="{% block description %}{% endblock %}">
+    
+    <title> Rent A Chef - {% block title %}{% endblock %}</title>
 
-        <title> Rent A Chef - {% block title %}{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/base.css') }}">
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ asset('css/base.css') }}">
- 
-        {% block stylesheets %}{% endblock %}
+    {% block stylesheets %}{% endblock %}
 
-    </head>
+</head>
 
-    <body>
+<body>
+    <header>
+        {% include "_partials/header.html.twig" %}
+    </header>
+    
+    <main>
+        {% block h1 %}{% endblock %}
+        {% for label, messages in app.flashes %}
+        {% for message in messages %}
+        <div class="flash-{{ label }} bg-{{ label }} text-light p-3 rounded mb-5">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endfor %}
+        {% block body %}{% endblock %}
+    </main>
 
-        <header>
-            {% include "_partials/header.html.twig" %}
-        </header>
+    <footer>
+        {{ include('_partials/footer.html.twig') }}
+    </footer>
 
-        <main>
-            {% block h1 %}{% endblock %}
-            {% for label, messages in app.flashes %}
-                        {% for message in messages %}
-                            <div class="flash-{{ label }} bg-{{ label }} text-light p-3 rounded mb-5">
-                                {{ message }}
-                            </div>
-                        {% endfor %}
-                    {% endfor %}
-            {% block body %}{% endblock %}
-        </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    {% block javascripts %}{% endblock %}
+</body>
 
-        <footer>
-           {{ include('_partials/footer.html.twig') }}
-        </footer>
-         
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-          {% block javascripts %}{% endblock %}
-    </body>
 </html>

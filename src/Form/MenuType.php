@@ -9,24 +9,58 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class MenuType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('menu_name')
-            ->add('price_menu')
-            ->add('description')
-            ->add('starter')
-            ->add('main')
-            ->add('dessert')
+            ->add('menu_name',TextType::class,[
+                'label'=>'Nom du menu',
+                'attr' => [
+                    'placeholder' => 'ex: menu gourmet',                
+                ]
+            ])
+            ->add('price_menu', TextType::class,[
+                'label'=>'Prix du menu',
+                'attr' => [
+                    'placeholder' => 'ex: 100 euros'
+                ]
+            ])
+            ->add('description', TextareaType::class ,[
+                'label'=>'Description du menu',
+                'attr' => [
+                    'placeholder' => 'Descrivez votre menu, le thème, les saveurs, etc'
+                ]
+            ])
+            ->add('starter', TextType::class,[
+                'label'=>'Entrée',
+                'attr' => [
+                    'placeholder' => 'ex: salade Niçoise'
+                ]
+            ])
+            ->add('main', TextType::class,[
+                'label'=>'Plat',
+                'attr' => [
+                    'placeholder' => 'ex: waffle burger'
+                ]
+            ])
+            ->add('dessert', TextType::class,[
+                'label'=>'Dessert',
+                'attr' => [
+                    'placeholder' => 'ex: moelleux aux 1000 saveurs'
+                ]
+            ])
             ->add('category', EntityType::class, [
+                'label' => 'Catégorie de votre menu',
                 'class' => MenuCategory::class,
                 'choice_label' => 'category_name'
             ])
             ->add('img1', FileType::class, [
                 'mapped' => false,
+                'label' => 'Photo menu',
                 'help' => 'png, jpg, jpeg, jp2 ou webp - 1 Mo maximum',
                 'constraints' => [
                     new Image([
@@ -47,6 +81,7 @@ class MenuType extends AbstractType
             ->add('img2', FileType::class, [
                 'required' => false,
                 'mapped' => false,
+                'label' => 'Photo supplementaire',
                 'help' => 'png, jpg, jpeg, jp2 ou webp - 1 Mo maximum',
                 'constraints' => [
                     new Image([
@@ -64,6 +99,7 @@ class MenuType extends AbstractType
             ->add('img3', FileType::class, [
                 'required' => false,
                 'mapped' => false,
+                'label' => 'Photo supplémentaire',
                 'help' => 'png, jpg, jpeg, jp2 ou webp - 1 Mo maximum',
                 'constraints' => [ 
                     new Image([

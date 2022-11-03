@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil Chef{% endblock %}
+
+{% block body %}
+<h1>Profil</h1>
+
+<table class="table">
+    <tbody>
+        <tr>
+            <th>Firstname</th>
+            <td>{{ chef.Firstname }}</td>
+        </tr>
+        <tr>
+            <th>Lastname</th>
+            <td>{{ chef.Lastname }}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{ chef.email }}</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+<a href="{{ path('app_list_chef') }}">back to list</a>
+
+
+
+{% endblock %}

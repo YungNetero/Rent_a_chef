@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -33,6 +34,15 @@ class ContactType extends AbstractType
             ->add('email', EmailType::class, [
                 'attr' => [
                     'maxLength' => 100
+                ]
+            ])
+            ->add('subject', ChoiceType::class, [
+                'choices' => [
+                    '-- sélectionner --' => '',
+                    'signaler un bug' => 'bug',
+                    'postuler' => 'postuler',
+                    'SAV' => 'sav',
+                    'autre' => 'autre'
                 ]
             ])
 

@@ -23,8 +23,8 @@ class MenuController extends AbstractController
         ]);
     }
 
-    #[Route('/chef/{uid}/menu', name: 'app_menu_chef', methods: ['GET'])]
-    public function menuListByChefId(MenuRepository $menuRepository, UserRepository $userRepository, $uid): Response
+    #[Route('/chef/{uid}/menu', name: 'app_menu_chef', methods: ['GET'])] 
+    public function menuListByChefId(MenuRepository $menuRepository, UserRepository $userRepository, $uid): Response // route pour le menu du chef selon son Id
     {
         $user = $userRepository->find($uid);
         if (in_array('ROLE_CHEF', $user->getRoles())) {
@@ -39,7 +39,7 @@ class MenuController extends AbstractController
         }
     }
 
-    #[Route('/chef/menu/new', name: 'app_menu_new', methods: ['GET', 'POST'])]
+    #[Route('/chef/menu/new', name: 'app_menu_new', methods: ['GET', 'POST'])] // route vers le create menu
     public function new(Request $request, ManagerRegistry $managerRegistry,): Response
     {
         //  Bloquer la route à tous les utilisateurs qui n'ont pas le role ROLE_CHEF ( faire une condition)

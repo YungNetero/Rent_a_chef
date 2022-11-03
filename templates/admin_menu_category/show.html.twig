@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MenuCategory{% endblock %}
+
+{% block body %}
+    <h1>MenuCategory</h1>
+
+    <table class="table table-hover table-sm texxt-center align-middle text-center">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ menu_category.id }}</td>
+            </tr>
+            <tr>
+                <th>Category_name</th>
+                <td>{{ menu_category.categoryName }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td>{{ menu_category.Img }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_menu_category_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_menu_category_edit', {'id': menu_category.id}) }}">edit</a>
+
+    {{ include('admin_menu_category/_delete_form.html.twig') }}
+{% endblock %}

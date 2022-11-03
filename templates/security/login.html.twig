@@ -1,52 +1,100 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}conexion{% endblock %}
+{% block title %}connexion{% endblock %}
+{% block description %}Cette page permet de se connecter{% endblock %}
 
 {% block body %}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-decoration: none;
+    }
 
-<section class="container my-3">
-    <div class="row">
-        <div class="col">
+    body {
+        background: -webkit-linear-gradient(left, #076827, #b7ddc3);
+    }
 
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    .emp-about {
+        padding: 3%;
+        margin-top: 3%;
+        margin-bottom: 3%;
+        border-radius: 0.5rem;
+        background: #fff;
+    }
 
-    {% if app.user %}
-        <div class="mb-3">
-           vous etes conecté(e) comme {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}"> Me deconecter</a>
-        </div>
-    {% endif %}
+    .example-wrapper {
+        margin: 1em auto;
+        max-width: 800px;
+        width: 95%;
+        font: 18px/1.5 sans-serif;
+    }
 
-    <h1 class="h3 mb-3 font-weight-normal">Me conecter </h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">mot de passe</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
+    }
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+    .title-header h2 {
+        background: #fff;
+        color: #363636;
+        display: inline-block;
+        font-weight: 600;
+        line-height: 40px;
+        margin: 0;
+        padding: 0 30px;
+        position: relative;
+        text-transform: uppercase;
+        border: 2px solid #198754;
+    }
+</style>
+<div class="example-wrapper emp-about">
 
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
 
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
+    <div class="title-header text-center">
+        <section class="container my-3">
+            <div class="row">
+                <div class="col">
 
-    <button class="btn btn-lg btn-outline-success mt-3" type="submit">
-        Me connecter
-    </button>
-</form>
+                    <form method="post">
+                        {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security')
+                            }}</div>
+                        {% endif %}
 
-        </div>
+                        {% if app.user %}
+                        <div class="mb-3">
+                            vous etes conecté(e) comme {{ app.user.userIdentifier }}, <a
+                                href="{{ path('app_logout') }}"> Me deconecter</a>
+                        </div>
+                        {% endif %}
+
+                        <h1 class=" mb-3 font-weight-normal">Me conecter </h1>
+                        <label for="inputEmail">Email</label>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
+                            class="form-control" autocomplete="email" required autofocus>
+                        <label for="inputPassword">mot de passe</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control"
+                            autocomplete="current-password" required>
+
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        <button class="btn btn-lg btn-outline-success mt-3" type="submit">
+                            Me connecter
+                        </button>
+                        <a href="{{ path('app_forgot_password_request') }}" class="btn btn-lg btn-outline-success mt-3"
+                            type="submit">
+                            mot de passe oublié
+                        </a>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
     </div>
-</section>
+
+</div>
+
 
 {% endblock %}

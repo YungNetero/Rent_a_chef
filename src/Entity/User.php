@@ -18,7 +18,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\GeneratedValue]
     #[ORM\Column(type: 'integer')]
     private $id;
-gi
+    
     #[ORM\Column(type: 'string', length: 180, unique: true)]
     private $email;
 
@@ -39,6 +39,8 @@ gi
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $ImgProfil;
+
+
 
     public function __construct()
     {
@@ -199,4 +201,10 @@ gi
 
         return $this;
     }
+    public function __toString(){
+        return $this->email;
+
+    }
+
+  
 }

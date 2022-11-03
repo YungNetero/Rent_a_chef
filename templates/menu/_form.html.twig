@@ -1,4 +1,58 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_start(form, {'attr': {'class': 'col-7 mx-auto form__container p-3'}}) }}
+    <div class="d-flex justify-content-between">
+        <div class="d-flex flex-column col-5">
+            {{ form_label(form.menu_name) }}
+
+            {{ form_widget(form.menu_name, {'attr': {'class': 'py-2 ps-1 form-control'}}) }}
+        </div>
+        <div class="d-flex flex-column col-5">
+            
+            {{ form_label(form.price_menu) }}
+            
+            {{ form_widget(form.price_menu, {'attr': {'class': 'py-2 ps-1 form-control'}}) }}
+        </div>
+    </div>
+    <div class="d-flex flex-column">
+        {{ form_label(form.description) }}
+        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div>
+        <p>Composition du menu</p>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex flex-column menu-item">
+                {{ form_label(form.starter) }}
+                {{ form_widget(form.starter, {'attr': {'class': 'py-2 ps-1 form-control'}}) }}
+            </div>
+            <div class="d-flex flex-column menu-item">
+                {{ form_label(form.main) }}
+                {{ form_widget(form.main, {'attr': {'class': 'py-2 ps-1 form-control'}}) }}
+            </div>
+            <div class="d-flex flex-column menu-item">
+                {{ form_label(form.dessert) }}
+                {{ form_widget(form.dessert, {'attr': {'class': 'py-2 ps-1 form-control'}}) }}
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-column col-4">
+        {{ form_label(form.category) }}
+        {{ form_widget(form.category) }}
+    </div>
+    <div>
+        <p>Presentez votre menu en image !</p>
+        <div class="d-flex flex-wrap justify-content-between">
+            <div class="d-flex flex-column col-5">
+                {{ form_label(form.img1) }}
+                {{ form_widget(form.img1) }}
+            </div>
+            <div class="d-flex flex-column col-5">
+                {{ form_label(form.img2) }}
+                {{ form_widget(form.img2) }}
+            </div>
+            <div class="d-flex flex-column">
+                {{ form_label(form.img3) }}
+                {{ form_widget(form.img3) }}
+            </div>
+        </div>
+
+<button class="btn">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}

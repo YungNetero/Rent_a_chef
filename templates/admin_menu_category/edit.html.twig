@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Edit MenuCategory{% endblock %}
+
+{% block body %}
+<h1 class="pb-5">Modifier Categorie</h1>
+
+    {{ include('admin_menu_category/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_menu_category_index') }}">back to list</a>
+
+    {{ include('admin_menu_category/_delete_form.html.twig') }}
+{% endblock %}

@@ -14,18 +14,8 @@
                 {{ form_row(registrationForm.firstname) }} 
                 {{ form_row(registrationForm.email) }}
             </fieldset>
-            <fieldset>
-                <legend>êtes vous un chef ?</legend>
-                <div>
-                  <input type="radio" id="true" name="isChef" value="true">
-                  <label for="true">Oui</label>
-                </div>
-            
-                <div>
-                  <input type="radio" id="false" name="isChef" value="false">
-                  <label for="false">Non</label>
-                </div>
-            </fieldset>
+            {{ form_row(registrationForm.chef) }}
+
             {# <fieldset class ="mb-3">
                 <legend>mes coordonées</legend>
                 {{ form_row(registrationForm.address) }} 
@@ -34,7 +24,6 @@
             </fieldset>
                  #}
 
-                
                 {{ form_row(registrationForm.plainPassword, {
                 label: 'Password'
                 }) }}
@@ -46,7 +35,4 @@
         </div>
     </div>
 </section>
-
-
-
 {% endblock %}
